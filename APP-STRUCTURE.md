@@ -4,9 +4,9 @@ We'll plan out our app using steps based on [an article](https://medium.com/@raj
 
 #### Stats
 + State (data received)
-  1. BaseStats object {statName: strength value}
-  2. Stamina object {statName: stamina value}
-  3. Dice Pool object [{statName: value}]
+  1. BaseStats (Object) {statName: strength value}
+  2. Stamina (Object) {statName: stamina value}
+  3. Dice Pool (Object) [{statName: value}]
 + Actions
   1. Each base stat's strength value can be incremented/decremented using player's stamina pool. This will happen by listening for DOM events and sending an action described as:
 
@@ -23,13 +23,13 @@ We'll plan out our app using steps based on [an article](https://medium.com/@raj
 
 #### Status
 + State (data received)
-  1. Icon
-  2. Name
-  3. Wounds Array
+  1. Icon (SVG)
+  2. Name (String)
+  3. Wounds (Array)
   ```javascript
   [{body_part: "name", effect_description: "blah blah"}]
   ```
-  4. Stamina Meter
+  4. Stamina Meter (Integer)
 
 ###### Target Select (sub-component of Status)
 + State (data received)
