@@ -31,7 +31,7 @@ We'll plan out our app using steps based on [an article](https://medium.com/@raj
   ```
   4. Stamina Meter (Integer)
 
-###### Target Select (sub-component of Status)
+*Target Select (sub-component of Status)*
 + State (data received)
   1. Target Options array (based on certain stat strength) `[{body_part: "name", effect_description: "blah blah"}]`
   2. Target Selected `{body_part: "name", effect_description: "blah blah"}`
@@ -46,3 +46,94 @@ We'll plan out our app using steps based on [an article](https://medium.com/@raj
     ```
 
 #### Battlefield
++ State (data received)
+  1. Player 1 (Object)
+  ```javascript
+  {id: 1, name: 'Player 1', icon: 'SVG String'}
+  ```
+  2. Player 2 (Object)
+  ```javascript
+  {id: 1, name: 'Player 2', icon: 'SVG String'}
+  ```
+
+*Inventory (sub-component of Battlefield)*
++ State (data received)
+  1. Items (Array)
+  ```javascript
+  [
+    {
+      id: 1,
+      stats: {
+        att: -1,
+        def: 2,
+        mov: 0,
+        finesse: 0
+      }
+      name: "Sword",
+      description: "BLAH"
+    }
+  ]
+  ```
+  2. Item Selected (Object)
+  ```javascript
+  {
+    id: 1,
+    stats: {
+      att: -1,
+      def: 2,
+      mov: 0,
+      finesse: 0
+    }
+    name: "Sword",
+    description: "BLAH"
+  }
+  ```
++ Actions
+  1. Player's item can be shown as selected based on action. Will send action based off DOM event (scroll, click, or keypress). Action described as:
+
+    ```javascript
+    {
+      type: 'SELECT_ITEM',
+      payload: {player_id: 1, item_id: 1}
+    }
+    ```
+  2. Player's item can be used based on action. Will send action based off DOM event (scroll, click, or keypress).
+  Action described as:
+
+    ```javascript
+    {
+      type: 'USE_ITEM',
+      payload: {
+        player_id: 1,
+        item_id: 1,
+        stats: {
+          att: -1,
+          def: 2,
+          mov: 0,
+          finesse: 0
+        }
+      }
+    }
+    ```
+*Dice Select (sub-component of Battlefield)*
++ State (data received)
+  1. Current Dice Pool (Array)
+  `[{type: "Strength", value: 3}]`
++ Actions
+  1. New Dice Pool created at beginning of round.
+  ```javascript
+  {
+    type: 'CREATE_DICE_POOL',
+  }
+  ```
+  2. Give dice to player during draft phase
+  ```javascript
+  {
+    type: 'DRAFT_DIE',
+    payload: {
+      player_id: 1,
+      die_type: "Strength",
+      die_value: 3
+    }
+  }
+  ```
