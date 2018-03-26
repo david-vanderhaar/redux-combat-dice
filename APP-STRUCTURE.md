@@ -13,11 +13,11 @@ We'll plan out our app using steps based on [an article](https://medium.com/@raj
     ```javascript
     {
       type: 'INCREMENT_BASE_STAT',
-      payload: {statName: 'speed'}
+      payload: {player_id: 1, stat_name: 'speed'}
     }
     {
       type: 'DECREMENT_BASE_STAT',
-      payload: {statName: 'speed'}
+      payload: {player_id: 1, stat_name: 'speed'}
     }
     ```
 
