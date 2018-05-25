@@ -19,7 +19,7 @@ let initial_state = [
   }
 ]
 
-const status = (state = initial_state, action) => {
+const status = (state = initial_state, action = 'no action') => {
   switch (action.type) {
     case 'SELECT_TARGET':
       return state.map(player => {

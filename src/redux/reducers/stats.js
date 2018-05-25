@@ -1,6 +1,6 @@
 import { CreatePlayer } from '../../Classes';
 
-const stats = (state = [CreatePlayer({id: 1}), CreatePlayer({id: 2})], action) => {
+const stats = (state = [CreatePlayer({id: 1}), CreatePlayer({id: 2})], action = 'no action') => {
   switch (action.type) {
     case 'INCREMENT_BASE_STAT':
       return state.map(player => {
